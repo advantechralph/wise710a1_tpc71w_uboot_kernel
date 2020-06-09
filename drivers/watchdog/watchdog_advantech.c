@@ -213,11 +213,11 @@ static void adv_wdt_start(void)
 
 static void adv_wdt_stop(void)
 {
-	adv_wdt_ping();
-
 	/* we don't need a clk_disable, it cannot be disabled once started.
 	 * We use a timer to ping the watchdog while /dev/watchdog is closed */
 	gpio_set_value(gpio_wdt_en, adv_wdt.wdt_en_off);
+
+	adv_wdt_ping();
 }
 
 static int adv_wdt_open(struct inode *inode, struct file *file)
