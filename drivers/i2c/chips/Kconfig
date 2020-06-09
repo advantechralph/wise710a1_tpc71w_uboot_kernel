@@ -1,0 +1,13 @@
+#
+# I2C algorithm drivers configuration
+#
+
+menu "I2C Chips"
+
+config ADV_ECC508A
+	bool "ADVANTECH I2C ECC508A support"
+	help
+	  This driver was support on WISE-710/TPC-71W only.
+	  Enable Atmel ECC508A security chip.
+
+endmenu

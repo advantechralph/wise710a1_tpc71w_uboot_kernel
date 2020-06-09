@@ -1,0 +1,28 @@
+menuconfig REALTEK_RTL83XX
+	tristate "Realtek RTL83xx switch support"
+	help
+	  This driver adds support for Realtek RTL83xx managed switch chips. It provide
+	  API functions through SMI with GPIO, MDC/MDIO and SPI interface to control
+	  switch.
+
+if REALTEK_RTL83XX
+
+config REALTEK_RTL83XX_API
+	tristate "Realtek RTL83xx API functions"
+	depends on REALTEK_RTL83XX
+	help
+	  Select to enable support for registering switches configured through API function.
+
+config REALTEK_RTL83XX_MDIO
+	tristate "Using MDIO interface to configure RTL83xx switch PHYS."
+	depends on REALTEK_RTL83XX
+
+config REALTEK_RTL83XX_PHY_DRIVER
+	tristate "Realtek RTL83XX switch phy driver"
+	depends on REALTEK_RTL83XX
+	help
+	  Select Realtek RTL83xx switch PHY.
+
+endif # REALTEK_RTL83XX
+
+

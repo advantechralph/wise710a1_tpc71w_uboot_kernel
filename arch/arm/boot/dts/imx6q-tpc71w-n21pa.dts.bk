@@ -1,0 +1,402 @@
+/*
+ * Copyright 2012 Freescale Semiconductor, Inc.
+ * Copyright 2011 Linaro Ltd.
+ *
+ * The code contained herein is licensed under the GNU General Public
+ * License. You may obtain a copy of the GNU General Public License
+ * Version 2 or later at the following locations:
+ *
+ * http://www.opensource.org/licenses/gpl-license.html
+ * http://www.gnu.org/copyleft/gpl.html
+ */
+
+/dts-v1/;
+
+#include "imx6q.dtsi"
+#include "imx6qdl-advantech.dtsi"
+
+/ {
+	model = "Freescale i.MX6 Quad TPC-71W-N21PA A1";
+	compatible = "fsl,imx6q-sabresd", "fsl,imx6q";
+
+	board {
+		compatible = "proc-board";
+		board-type = "TPC-71W-N21PA";
+		board-cpu = "DualQuad";
+	};
+
+	regulators {
+
+		reg_usb_otg_vbus: usb_otg_vbus {
+			compatible = "regulator-fixed";
+			regulator-name = "usb_otg_vbus";
+			regulator-min-microvolt = <5000000>;
+			regulator-max-microvolt = <5000000>;
+			gpio = <&gpio1 1  GPIO_ACTIVE_HIGH>;
+			enable-active-high;
+		};
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_leds_debug_1>;
+		debug-led {
+			label = "Heartbeat";
+			gpios = <&gpio7 12 0>;
+			linux,default-trigger = "heartbeat";
+		};
+	};
+
+	gpio_direction {
+		pinctrl-names = "default";
+		compatible = "gpio-set-direction";
+		usb-host-pwr-en = <&gpio1 0 1>;
+		usb-host-oc = <&gpio1 3 0>;
+		wifi-det = <&gpio5 21 0>;
+		det-3g = <&gpio5 22 0>;
+		off-3g = <&gpio5 23 0>;
+		pcie-h-wlan-led = <&gpio6 15 0>;
+		pcie-h-wwan-led = <&gpio6 8 0>;
+		pcie-f-wlan-led = <&gpio2 0 0>;
+		pcie-f-wwan-led = <&gpio2 4 0>;
+	};
+};
+
+&audio_sgtl5000 {
+	audio-codec = <&codec>;
+	status = "okay";
+};
+
+&audmux {
+	pinctrl-0 = <&pinctrl_audmux_4>;
+	status = "okay";
+};
+
+&bkl {
+	lvds-bkl-enable = <&gpio4 6 1>;
+	lvds-vcc-enable = <&gpio4 7 1>;
+	pwms = <&pwm4 0 5000000>;
+	brightness-levels = <0 70 75 80 85 90 95 100>;
+	status = "okay";
+};
+
+&ecspi1 {
+	fsl,spi-num-chipselects = <2>;
+	cs-gpios = <&gpio2 30 0>, <&gpio3 19 0>;
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_ecspi1_1 &pinctrl_ecspi1_cs_0 &pinctrl_ecspi1_cs_1>;
+	status = "okay";
+
+	chip1: m25p80@0 {
+		compatible = "st,m25p32";
+		spi-max-frequency = <20000000>;
+		reg = <0>;
+	};
+	chip2: fm25@1 {
+		compatible = "ramtron,fm25v10";
+		spi-max-frequency = <40000000>;
+		reg = <1>;
+	};
+};
+
+&can1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_flexcan1_3>;
+	status = "okay";
+};
+
+&i2c1 {
+	codec: sgtl5000@0a {
+		compatible = "fsl,sgtl5000";
+		reg = <0x0a>;
+		clocks = <&clks 201>;
+		VDDA-supply = <&reg_2p5v>;
+		VDDIO-supply = <&reg_3p3v>;
+		mclk = <16000000>;
+		mclk_source = <0>;
+	};
+
+	rx8010@32 {
+		compatible = "epson,rx8010";
+		reg = <0x32>;
+	};
+
+	wdt@29 {
+		compatible = "fsl,adv-wdt-i2c";
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_wdt_en_1 &pinctrl_wdt_ping_1>;
+		status = "okay";
+		wdt-en = <&gpio2 5 0>;
+		wdt-ping = <&gpio1 9 0>;
+		reg = <0x29>;
+	};
+
+	eeprom@50 {
+		compatible = "atmel,24c08";
+		reg = <0x50>;
+		pagesize = <16>;
+	};
+};
+
+&i2c2 {
+	hdmi: edid@50 {
+		compatible = "fsl,imx6-hdmi-i2c";
+		reg = <0x50>;
+	};
+};
+
+&i2c3 {
+	status = "disabled";
+};
+
+&iomuxc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_hog_1 &pinctrl_hog_2>;
+
+	hog {
+		pinctrl_hog_1: hoggrp-1 {
+			fsl,pins = <
+				MX6QDL_PAD_GPIO_2__GPIO1_IO02		0x80000000	/* SD card - SD2_WP */
+				MX6QDL_PAD_GPIO_4__GPIO1_IO04		0x80000000	/* SD card - SD2_CD */
+				MX6QDL_PAD_EIM_D30__GPIO3_IO30		0x0001B0B0	/* BORAD_ID0 */
+				MX6QDL_PAD_EIM_D31__GPIO3_IO31		0x000130B0	/* BORAD_ID1 */
+			>;
+		};
+
+		pinctrl_hog_2: hoggrp-2 {
+			fsl,pins = <
+				MX6QDL_PAD_CSI0_VSYNC__GPIO5_IO21	0x0001B0B0	/* WIFI_DET# */
+				MX6QDL_PAD_CSI0_DAT4__GPIO5_IO22	0x0001B0B0	/* 3G_DET# */
+				MX6QDL_PAD_CSI0_DAT5__GPIO5_IO23	0x0001B0B0	/* 3G_OFF# */
+				MX6QDL_PAD_NANDF_CS2__GPIO6_IO15	0x0001B0B0	/* PCIE_H_WLAN_LED# */
+				MX6QDL_PAD_NANDF_ALE__GPIO6_IO08	0x0001B0B0	/* PCIE_H_WWAN_LED# */
+				MX6QDL_PAD_NANDF_D0__GPIO2_IO00		0x0001B0B0	/* PCIE_F_WLAN_LED# */
+				MX6QDL_PAD_NANDF_D4__GPIO2_IO04		0x00017059	/* PCIE_F_WWAN_LED# */
+			>;
+		};
+	};
+
+	leds {
+		pinctrl_leds_debug_1: leds_debug1grp-1{
+			fsl,pins = <
+				MX6QDL_PAD_GPIO_0__CCM_CLKO1		0x130b0		/* AUDIO CLK */
+				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* gpio - led */
+				MX6QDL_PAD_KEY_ROW3__GPIO4_IO13		0x80000000	/* debug gpio_01 */
+				MX6QDL_PAD_KEY_COL3__GPIO4_IO12		0x80000000	/* debug gpio_02 */
+				
+			>;
+		};
+	};
+
+	pcie {
+		pinctrl_pcie_1: pcie1grp-1 {
+			fsl,pins = <
+				MX6QDL_PAD_CSI0_PIXCLK__GPIO5_IO18	0x80000000	/* PCIE disable pin - WIFI_OFF# */
+			>;
+		};
+	};
+
+	pwm4 {
+		pinctrl_pwm4_1: pwm4grp-1 {
+			fsl,pins = <
+				MX6QDL_PAD_SD1_CMD__PWM4_OUT		0x1b0b1
+			>;
+		};
+	};
+
+	spi1 {
+		pinctrl_ecspi1_cs_0: ecspi1_cs_grp-0 {
+			fsl,pins = <
+				MX6QDL_PAD_EIM_EB2__GPIO2_IO30		0x80000000	/* ECSPI1_CS0 */
+			>;
+		};
+	};
+
+	uart2 {
+		pinctrl_uart2_3: uart2grp-3 { /* DCE mode */
+			fsl,pins = <
+				MX6QDL_PAD_EIM_D26__UART2_TX_DATA		0x1b0b1
+				MX6QDL_PAD_EIM_D27__UART2_RX_DATA		0x1b0b1
+				MX6QDL_PAD_EIM_D28__UART2_CTS_B			0x1b0b1
+				MX6QDL_PAD_EIM_D29__UART2_RTS_B			0x1b0b1
+			>;
+		};
+	};
+
+	usbh1 {
+		pinctrl_usbh1_1: usbh1_grp-1 {
+			fsl,pins = <
+				MX6QDL_PAD_GPIO_19__GPIO4_IO05		0x00017099	/* USB_HOST_PWR_EN */
+				MX6QDL_PAD_GPIO_3__GPIO1_IO03		0x0001B8B1	/* USB_HOST_OC# */
+			>;
+		};
+	};
+
+	usbotg {
+		pinctrl_usbotg_pwr_1: usbotg_pwr_grp-1 {
+			fsl,pins = <
+				MX6QDL_PAD_KEY_ROW4__GPIO4_IO15		0x80000000	/* USB_OTG_PWR_EN */
+				MX6QDL_PAD_KEY_COL4__GPIO4_IO14		0x0001B0B0	/* USB_OTG_OC */
+			>;
+		};
+	};
+
+	wdt{
+		pinctrl_wdt_en_1: wdt_engrp-1 {
+			fsl,pins = <
+				MX6QDL_PAD_NANDF_D5__GPIO2_IO05		0x80000000
+			>;
+		};
+
+		pinctrl_wdt_ping_1: wdt_pinggrp-1 {
+			fsl,pins = <
+				MX6QDL_PAD_GPIO_9__GPIO1_IO09		0x80000000
+			>;
+		};
+	};
+};
+
+&ldb {
+	lvds-channel@0 {
+		crtc = "ipu1-di0";
+
+		display-timings {
+			native-mode = <&timing60>;
+
+			timing60: av070nn04a {
+				clock-frequency = <29500000>;
+				hactive = <1024>;
+				vactive = <600>;
+				hback-porch = <0>;
+				hfront-porch = <35>;
+				vback-porch = <0>;
+				vfront-porch = <320>;
+				hsync-len = <72>;
+				vsync-len = <7>;
+			}; 
+		};
+	};
+
+	lvds-channel@1 {
+		status ="disabled";
+	};
+};
+
+&hdmi_core {
+	ipu_id = <0>;
+	disp_id = <1>;
+	status = "okay";
+};
+
+&mxcfb1 {
+	status = "okay";
+};
+
+&mxcfb3 {
+	status = "okay";
+};
+
+&pcie {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_pcie_1>;
+	disable-gpio = <&gpio5 18 0>;
+	status = "okay";
+};
+
+&pwm4 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_pwm4_1>;
+	status = "okay";
+
+};
+
+&ssi2 {
+	status = "okay";
+};
+
+&uart1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart1_1>;
+	status = "okay";
+};
+
+&uart2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart2_3>;
+	fsl,uart-has-rtscts;
+	status = "okay";
+};
+
+&usbh1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_usbh1_1>;
+	status = "okay";
+};
+
+&usbotg {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_usbotg_pwr_1>;
+	vbus-supply = <&reg_usb_otg_vbus>;
+	imx6-usb-charger-detection;
+	status = "okay";
+};
+
+&usdhc2 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_usdhc2_2>;
+	cd-gpios = <&gpio1 4 0>;
+	wp-gpios = <&gpio1 2 0>;
+	no-1-8-v;
+	keep-power-in-suspend;
+	enable-sdio-wakeup;
+	status = "okay";
+};
+
+&usdhc4 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_usdhc4_1>;
+	bus-width = <8>;
+	non-removable;
+	no-1-8-v;
+	keep-power-in-suspend;
+	status = "okay";
+};
+
+&wdog1 {
+	status = "disabled";
+};
+
+&mxcfb1 {
+	compatible = "fsl,mxc_sdc_fb";
+	disp_dev = "ldb";
+	interface_pix_fmt = "RGB24";
+	default_bpp = <32>;
+	int_clk = <0>;
+	late_init = <1>;
+	fb_base = <0x27800000>;
+	fb_size = <0x01800000>;
+	status = "okay";
+};
+
+&mxcfb3 {
+	status ="disabled";
+};
+
+//	primary;
+&ldb {                        
+	lvds-channel@0 {
+		crtc = "ipu1-di0";
+		status = "okay";
+	};
+
+	lvds-channel@1 {
+		status = "disabled";
+	};
+};
+
+&ipu1 {
+	bypass_reset = <1>;
+	status = "okay";
+};
+

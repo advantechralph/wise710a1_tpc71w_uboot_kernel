@@ -1,0 +1,103 @@
+Binary file arch/arm/boot/Image matches
+arch/arm/boot/dts/imx6q-ebcrs03-a1.dts:159:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x1b0b1	/* gpio - red led */
+arch/arm/boot/dts/imx6qdl-cubox-i.dtsi:177:			fsl,pins = <MX6QDL_PAD_GPIO_17__SPDIF_OUT 0x13091>;
+arch/arm/boot/dts/imx6q-rom3420-a1.dts:318:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* GPIO4 */
+arch/arm/boot/dts/imx6q-rom3420-a1.dts:395:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* row 0: GPIO4 */
+arch/arm/boot/dts/imx6dl-tpc7ew-a1.dts:173:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* gpio - led */
+arch/arm/boot/dts/omap3-pandora-common.dtsi:184:			gpios = <&gpio6 16 GPIO_ACTIVE_LOW>;	/* GPIO_176 */
+arch/arm/boot/dts/omap3-pandora-common.dtsi:300:			OMAP3_CORE1_IOPAD(0x21d2, PIN_INPUT | MUX_MODE4)	/* GPIO_176 */
+arch/arm/boot/dts/imx6dl-rom7421-a1.dts:487:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000 /* PCIE_RST - Watchdog out at present */
+arch/arm/boot/dts/imx6q-pinfunc.h:722:#define MX6QDL_PAD_GPIO_17__ESAI_TX0                0x24c 0x61c 0x874 0x0 0x0
+arch/arm/boot/dts/imx6q-pinfunc.h:723:#define MX6QDL_PAD_GPIO_17__ENET_1588_EVENT3_IN     0x24c 0x61c 0x000 0x1 0x0
+arch/arm/boot/dts/imx6q-pinfunc.h:724:#define MX6QDL_PAD_GPIO_17__CCM_PMIC_READY          0x24c 0x61c 0x7f0 0x2 0x1
+arch/arm/boot/dts/imx6q-pinfunc.h:725:#define MX6QDL_PAD_GPIO_17__SDMA_EXT_EVENT0         0x24c 0x61c 0x90c 0x3 0x1
+arch/arm/boot/dts/imx6q-pinfunc.h:726:#define MX6QDL_PAD_GPIO_17__SPDIF_OUT               0x24c 0x61c 0x000 0x4 0x0
+arch/arm/boot/dts/imx6q-pinfunc.h:727:#define MX6QDL_PAD_GPIO_17__GPIO7_IO12              0x24c 0x61c 0x000 0x5 0x0
+arch/arm/boot/dts/imx6qdl-advantech.dtsi:466:				MX6QDL_PAD_GPIO_17__ESAI_TX0        0x1b030
+arch/arm/boot/dts/imx6qdl-advantech.dtsi:710:				MX6QDL_PAD_GPIO_17__SPDIF_OUT 0x1b0b0
+arch/arm/boot/dts/imx6dl-tpc7ew-a1.dts.bk:173:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* gpio - led */
+arch/arm/boot/dts/imx6q-rsb6410-a2.dts:231:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* PCIE_RST */
+arch/arm/boot/dts/imx6qp-rom7421-a1.dts:482:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000 /* PCIE_RST - Watchdog out at present */
+arch/arm/boot/dts/imx6qdl-sabresd.dtsi:800:				MX6QDL_PAD_GPIO_17__GPIO7_IO12	0x1b0b0
+arch/arm/boot/dts/imx6qdl-hummingboard.dtsi:238:			fsl,pins = <MX6QDL_PAD_GPIO_17__SPDIF_OUT 0x13091>;
+arch/arm/boot/dts/imx6q-rom7421-a1.dts:482:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000 /* PCIE_RST - Watchdog out at present */
+arch/arm/boot/dts/imx6qdl-sabreauto.dtsi:712:				MX6QDL_PAD_GPIO_17__ESAI_TX0        0x1b030
+arch/arm/boot/dts/imx6dl-wise7140-a1.dts.bk:147:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* gpio - led */
+arch/arm/boot/dts/imx6dl-pinfunc.h:715:#define MX6QDL_PAD_GPIO_17__ESAI_TX0                0x218 0x5e8 0x844 0x0 0x0
+arch/arm/boot/dts/imx6dl-pinfunc.h:716:#define MX6QDL_PAD_GPIO_17__ENET_1588_EVENT3_IN     0x218 0x5e8 0x000 0x1 0x0
+arch/arm/boot/dts/imx6dl-pinfunc.h:717:#define MX6QDL_PAD_GPIO_17__CCM_PMIC_READY          0x218 0x5e8 0x7d4 0x2 0x1
+arch/arm/boot/dts/imx6dl-pinfunc.h:718:#define MX6QDL_PAD_GPIO_17__SDMA_EXT_EVENT0         0x218 0x5e8 0x8e8 0x3 0x1
+arch/arm/boot/dts/imx6dl-pinfunc.h:719:#define MX6QDL_PAD_GPIO_17__SPDIF_OUT               0x218 0x5e8 0x000 0x4 0x0
+arch/arm/boot/dts/imx6dl-pinfunc.h:720:#define MX6QDL_PAD_GPIO_17__GPIO7_IO12              0x218 0x5e8 0x000 0x5 0x0
+arch/arm/boot/dts/imx6qdl-udoo.dtsi:124:				MX6QDL_PAD_GPIO_17__GPIO7_IO12 0x80000000
+arch/arm/boot/dts/imx6dl-ebcrs03-a1.dts:159:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x1b0b1	/* gpio - red led */
+arch/arm/boot/dts/imx53-pinfunc.h:1172:#define MX53_PAD_GPIO_17__ESAI1_TX0				0x340 0x6d0 0x7e4 0x0 0x1
+arch/arm/boot/dts/imx53-pinfunc.h:1173:#define MX53_PAD_GPIO_17__GPIO7_12				0x340 0x6d0 0x000 0x1 0x0
+arch/arm/boot/dts/imx53-pinfunc.h:1174:#define MX53_PAD_GPIO_17__SDMA_EXT_EVENT_0			0x340 0x6d0 0x868 0x2 0x1
+arch/arm/boot/dts/imx53-pinfunc.h:1175:#define MX53_PAD_GPIO_17__GPC_PMIC_RDY				0x340 0x6d0 0x810 0x3 0x1
+arch/arm/boot/dts/imx53-pinfunc.h:1176:#define MX53_PAD_GPIO_17__RTC_CE_RTC_FSV_TRIG			0x340 0x6d0 0x000 0x4 0x0
+arch/arm/boot/dts/imx53-pinfunc.h:1177:#define MX53_PAD_GPIO_17__SPDIF_OUT1				0x340 0x6d0 0x000 0x5 0x0
+arch/arm/boot/dts/imx53-pinfunc.h:1178:#define MX53_PAD_GPIO_17__IPU_SNOOP2				0x340 0x6d0 0x000 0x6 0x0
+arch/arm/boot/dts/imx53-pinfunc.h:1179:#define MX53_PAD_GPIO_17__SJC_JTAG_ACT				0x340 0x6d0 0x000 0x7 0x0
+arch/arm/boot/dts/imx6q-rom7420-a1.dts:204:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* PCIE_RST */
+arch/arm/boot/dts/imx6q-ubc220-a1.dts:147:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* gpio - led */
+arch/arm/boot/dts/imx6q-rsb6410-a1.dts:234:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* PCIE_RST */
+arch/arm/boot/dts/imx6dl-ubc220-a1.dts:147:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* gpio - led */
+arch/arm/boot/dts/imx6dl-wise7140-a1.dts:158:				MX6QDL_PAD_GPIO_17__GPIO7_IO12		0x80000000	/* gpio - led */
+arch/arm/boot/dts/imx6q-tbs2910.dts:370:				MX6QDL_PAD_GPIO_17__GPIO7_IO12        0x17059
+arch/arm/boot/dts/vf610-pinfunc.h:126:#define VF610_PAD_PTA27__GPIO_17		0x044 0x000 ALT0 0x0
+tags:653190:MX53_PAD_GPIO_17	drivers/pinctrl/freescale/pinctrl-imx53.c	/^	MX53_PAD_GPIO_17 = 208,$/;"	e	enum:imx53_pads	file:
+tags:653191:MX53_PAD_GPIO_17__ESAI1_TX0	arch/arm/boot/dts/imx53-pinfunc.h	1172;"	d
+tags:653192:MX53_PAD_GPIO_17__GPC_PMIC_RDY	arch/arm/boot/dts/imx53-pinfunc.h	1175;"	d
+tags:653193:MX53_PAD_GPIO_17__GPIO7_12	arch/arm/boot/dts/imx53-pinfunc.h	1173;"	d
+tags:653194:MX53_PAD_GPIO_17__IPU_SNOOP2	arch/arm/boot/dts/imx53-pinfunc.h	1178;"	d
+tags:653195:MX53_PAD_GPIO_17__RTC_CE_RTC_FSV_TRIG	arch/arm/boot/dts/imx53-pinfunc.h	1176;"	d
+tags:653196:MX53_PAD_GPIO_17__SDMA_EXT_EVENT_0	arch/arm/boot/dts/imx53-pinfunc.h	1174;"	d
+tags:653197:MX53_PAD_GPIO_17__SJC_JTAG_ACT	arch/arm/boot/dts/imx53-pinfunc.h	1179;"	d
+tags:653198:MX53_PAD_GPIO_17__SPDIF_OUT1	arch/arm/boot/dts/imx53-pinfunc.h	1177;"	d
+tags:653869:MX6DL_PAD_GPIO_17	drivers/pinctrl/freescale/pinctrl-imx6dl.c	/^	MX6DL_PAD_GPIO_17 = 134,$/;"	e	enum:imx6dl_pads	file:
+tags:655294:MX6QDL_PAD_GPIO_17__CCM_PMIC_READY	arch/arm/boot/dts/imx6dl-pinfunc.h	717;"	d
+tags:655295:MX6QDL_PAD_GPIO_17__CCM_PMIC_READY	arch/arm/boot/dts/imx6q-pinfunc.h	724;"	d
+tags:655296:MX6QDL_PAD_GPIO_17__ENET_1588_EVENT3_IN	arch/arm/boot/dts/imx6dl-pinfunc.h	716;"	d
+tags:655297:MX6QDL_PAD_GPIO_17__ENET_1588_EVENT3_IN	arch/arm/boot/dts/imx6q-pinfunc.h	723;"	d
+tags:655298:MX6QDL_PAD_GPIO_17__ESAI_TX0	arch/arm/boot/dts/imx6dl-pinfunc.h	715;"	d
+tags:655299:MX6QDL_PAD_GPIO_17__ESAI_TX0	arch/arm/boot/dts/imx6q-pinfunc.h	722;"	d
+tags:655300:MX6QDL_PAD_GPIO_17__GPIO7_IO12	arch/arm/boot/dts/imx6dl-pinfunc.h	720;"	d
+tags:655301:MX6QDL_PAD_GPIO_17__GPIO7_IO12	arch/arm/boot/dts/imx6q-pinfunc.h	727;"	d
+tags:655302:MX6QDL_PAD_GPIO_17__SDMA_EXT_EVENT0	arch/arm/boot/dts/imx6dl-pinfunc.h	718;"	d
+tags:655303:MX6QDL_PAD_GPIO_17__SDMA_EXT_EVENT0	arch/arm/boot/dts/imx6q-pinfunc.h	725;"	d
+tags:655304:MX6QDL_PAD_GPIO_17__SPDIF_OUT	arch/arm/boot/dts/imx6dl-pinfunc.h	719;"	d
+tags:655305:MX6QDL_PAD_GPIO_17__SPDIF_OUT	arch/arm/boot/dts/imx6q-pinfunc.h	726;"	d
+tags:656253:MX6Q_PAD_GPIO_17	drivers/pinctrl/freescale/pinctrl-imx6q.c	/^	MX6Q_PAD_GPIO_17 = 147,$/;"	e	enum:imx6q_pads	file:
+tags:1116952:VF610_PAD_PTA27__GPIO_17	arch/arm/boot/dts/vf610-pinfunc.h	126;"	d
+Binary file vmlinux.o matches
+Binary file vmlinux matches
+drivers/pinctrl/qcom/pinctrl-msm8x74.c:39:	PINCTRL_PIN(17, "GPIO_17"),
+drivers/pinctrl/qcom/pinctrl-apq8084.c:40:	PINCTRL_PIN(17, "GPIO_17"),
+drivers/pinctrl/qcom/pinctrl-apq8064.c:39:	PINCTRL_PIN(17, "GPIO_17"),
+drivers/pinctrl/qcom/pinctrl-msm8960.c:40:	PINCTRL_PIN(17, "GPIO_17"),
+drivers/pinctrl/qcom/pinctrl-msm8916.c:39:	PINCTRL_PIN(17, "GPIO_17"),
+drivers/pinctrl/qcom/pinctrl-ipq8064.c:40:	PINCTRL_PIN(17, "GPIO_17"),
+Binary file drivers/pinctrl/built-in.o matches
+Binary file drivers/pinctrl/freescale/pinctrl-imx53.o matches
+Binary file drivers/pinctrl/freescale/built-in.o matches
+drivers/pinctrl/freescale/pinctrl-imx6q.c:173:	MX6Q_PAD_GPIO_17 = 147,
+drivers/pinctrl/freescale/pinctrl-imx6q.c:393:	IMX_PINCTRL_PIN(MX6Q_PAD_GPIO_17),
+drivers/pinctrl/freescale/pinctrl-imx53.c:234:	MX53_PAD_GPIO_17 = 208,
+drivers/pinctrl/freescale/pinctrl-imx53.c:448:	IMX_PINCTRL_PIN(MX53_PAD_GPIO_17),
+Binary file drivers/pinctrl/freescale/pinctrl-imx6dl.o matches
+Binary file drivers/pinctrl/freescale/pinctrl-imx6q.o matches
+drivers/pinctrl/freescale/pinctrl-imx6dl.c:154:	MX6DL_PAD_GPIO_17 = 134,
+drivers/pinctrl/freescale/pinctrl-imx6dl.c:374:	IMX_PINCTRL_PIN(MX6DL_PAD_GPIO_17),
+drivers/pinctrl/pinctrl-amd.h:119:	PINCTRL_PIN(17, "GPIO_17"),
+drivers/pinctrl/pinctrl-amd.h:210:	PINCTRL_PIN(170, "GPIO_170"),
+drivers/pinctrl/pinctrl-amd.h:211:	PINCTRL_PIN(171, "GPIO_171"),
+drivers/pinctrl/pinctrl-amd.h:212:	PINCTRL_PIN(172, "GPIO_172"),
+drivers/pinctrl/pinctrl-amd.h:213:	PINCTRL_PIN(173, "GPIO_173"),
+drivers/pinctrl/pinctrl-amd.h:214:	PINCTRL_PIN(174, "GPIO_174"),
+drivers/pinctrl/pinctrl-amd.h:215:	PINCTRL_PIN(175, "GPIO_175"),
+drivers/pinctrl/pinctrl-amd.h:216:	PINCTRL_PIN(176, "GPIO_176"),
+drivers/pinctrl/pinctrl-amd.h:217:	PINCTRL_PIN(177, "GPIO_177"),
+Binary file drivers/built-in.o matches
+Binary file .tmp_vmlinux1 matches
+Binary file .tmp_vmlinux2 matches
