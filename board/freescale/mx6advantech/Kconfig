@@ -154,6 +154,12 @@ config SYS_CONFIG_NAME
 	default "mx6wise710"
 
 endif
+if TARGET_MX6WISE710A1_2G
+
+config SYS_CONFIG_NAME
+	default "mx6wise710"
+
+endif
 if TARGET_MX6RSB6410A1_1G
 
 config SYS_CONFIG_NAME

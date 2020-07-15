@@ -212,7 +212,7 @@ static void setup_iomux_enet(void)
 {
 	imx_iomux_v3_setup_multiple_pads(enet_pads, ARRAY_SIZE(enet_pads));
 
-#ifndef CONFIG_TARGET_MX6WISE710A1_1G
+#if !defined(CONFIG_TARGET_MX6WISE710A1_1G) && !defined(CONFIG_TARGET_MX6WISE710A1_2G)
 	/* Reset AR8031 PHY */
 	gpio_direction_output(IMX_GPIO_NR(1, 25) , 0);
 	mdelay(10);
@@ -354,7 +354,7 @@ iomux_v3_cfg_t const di0_pads[] = {
 	MX6_PAD_DI0_PIN3__IPU1_DI0_PIN03,		/* DISP0_VSYNC */
 };
 
-#ifdef CONFIG_TARGET_MX6WISE710A1_1G
+#if defined(CONFIG_TARGET_MX6WISE710A1_1G) || defined(CONFIG_TARGET_MX6WISE710A1_2G)
 static iomux_v3_cfg_t const gpio_pads[] = {
 	MX6_PAD_ENET_RXD0__GPIO1_IO27	| MUX_PAD_CTRL(NO_PAD_CTRL),	/* DIO1(GPIO27) */
 	MX6_PAD_ENET_TXD1__GPIO1_IO29	| MUX_PAD_CTRL(NO_PAD_CTRL),	/* DIO2(GPIO29) */
@@ -730,7 +730,7 @@ int mx6_rgmii_rework(struct phy_device *phydev)
 {
 	unsigned short val;
 
-#ifdef CONFIG_TARGET_MX6WISE710A1_1G
+#if defined(CONFIG_TARGET_MX6WISE710A1_1G) || defined(CONFIG_TARGET_MX6WISE710A1_2G)
 	/* To enable AR8031 ouput a 125MHz clk from CLK_25M */
 	phy_write(phydev, MDIO_DEVAD_NONE, 0xd, 0x7);
 	phy_write(phydev, MDIO_DEVAD_NONE, 0xe, 0x8016);
@@ -1072,7 +1072,7 @@ int board_ehci_power(int port, int on)
 
 int board_early_init_f(void)
 {
-#if defined(CONFIG_TARGET_MX6WISE710A1_1G)
+#if defined(CONFIG_TARGET_MX6WISE710A1_1G) || defined(CONFIG_TARGET_MX6WISE710A1_2G)
 	setup_iomux_gpio();
 #endif
 	setup_iomux_uart();
@@ -1498,7 +1498,7 @@ void board_fastboot_setup(void)
 #ifdef CONFIG_ADV_OTA_SUPPORT
 	int bootdev = (*(int *)0x22200000);
 	char mmc_num[32];
-#ifdef CONFIG_TARGET_MX6WISE710A1_1G
+#if defined(CONFIG_TARGET_MX6WISE710A1_1G) || defined(CONFIG_TARGET_MX6WISE710A1_2G)
 	unsigned int com1_sel0 = 0, com1_sel1 = 0;
 #endif
 
@@ -1583,7 +1583,7 @@ void board_fastboot_setup(void)
 	}
 #endif /*CONFIG_ADV_OTA_SUPPORT*/
 
-#ifdef CONFIG_TARGET_MX6WISE710A1_1G
+#if defined(CONFIG_TARGET_MX6WISE710A1_1G) || defined(CONFIG_TARGET_MX6WISE710A1_2G)
 	// gpio5 0 gpio6 1 => COM1 rs232
 	// gpio5 1 gpio6 0 => COM1 rs485
 	gpio_free(IMX_GPIO_NR(1, 5));
