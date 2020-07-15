@@ -180,23 +180,25 @@ struct mmc *find_mmc_device(int dev_num)
 	struct list_head *entry;
 
 	/*test*/
-	char *mmc_type;
+//	char *mmc_type;
 
 	list_for_each(entry, &mmc_devices) {
 		m = list_entry(entry, struct mmc, link);
-		
-		/*test*/
-		if (m->has_init)
-			mmc_type = IS_SD(m) ? "SD" : "eMMC";
-		else
-			mmc_type = NULL;
 
-		printf("%s: %d", m->cfg->name, m->block_dev.dev);
-		if (mmc_type)
-			printf(" (%s)", mmc_type);
-		if (entry->next != &mmc_devices) {
-			printf("\n");
-													}
+		/*test*/
+/***************************************
+*		if (m->has_init)
+*			mmc_type = IS_SD(m) ? "SD" : "eMMC";
+*		else
+*			mmc_type = NULL;
+*
+*		printf("%s: %d", m->cfg->name, m->block_dev.dev);
+*		if (mmc_type)
+*			printf(" (%s)", mmc_type);
+*		if (entry->next != &mmc_devices) {
+*			printf("\n");
+			}
+******************************************/
 		
 		if (m->block_dev.dev == dev_num)
 			return m;
