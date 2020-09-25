@@ -5,6 +5,10 @@ build_kernel: compile_kernel install_kernel_modules
 .PHONY: compile_kernel
 compile_kernel: fetch_kernel $(builddir)/.compile_kernel
 
+.PHONY: menuconfig
+menuconfig: 
+	@make -C $(kernelsrc) O=$(kernelbuild)  menuconfig 
+
 $(builddir)/.compile_kernel: $(builddir)/.compile_kernel_config \
                             $(builddir)/.compile_kernel_module_prepare \
                             $(builddir)/.compile_kernel_zImage \
