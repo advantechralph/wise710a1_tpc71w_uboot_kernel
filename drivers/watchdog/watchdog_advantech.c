@@ -162,7 +162,7 @@ int adv_wdt_i2c_set_timeout(struct i2c_client *client, int val)
 #else
 	int ret=-1; 
 	val = WDOG_SEC_TO_COUNT(val) & 0x0000FFFF;
-	if((ret=i2c_smbus_write_word_data(client, (u8)REG_WDT_WATCHDOG_TIME_OUT, (u16)val)!=1)){
+	if((ret=i2c_smbus_write_word_data(client, (u8)REG_WDT_WATCHDOG_TIME_OUT, (u16)val))!=0){
 		printk("%s, %d: ERROR!! ret: %d\n", __FUNCTION__, __LINE__, ret);
 		//return -EIO;
 		return 0;
@@ -382,7 +382,7 @@ static int adv_wdt_restart_handle(struct notifier_block *this, unsigned long mod
 {
 	/* Ralph: The digits are swapped between the old and new MCU firmware version. */
 	if((adv_wdt_info.firmware_version==71)){
-		dev_info(adv_wdt_miscdev.parent, "Ver 1.7: use old way to reboot\n", __FUNCTION__, __LINE__);
+		dev_info(adv_wdt_miscdev.parent, "%s, %d: Ver 1.7: use old way to reboot\n", __FUNCTION__, __LINE__);
 		if (test_and_set_bit(ADV_WDT_STATUS_OPEN, &adv_wdt.status)){
 			dev_crit(adv_wdt_miscdev.parent, "%s, %d: ERROR: ADV_WDT_STATUS_OPEN!!!!\n", __FUNCTION__, __LINE__);
 			return -EBUSY;
