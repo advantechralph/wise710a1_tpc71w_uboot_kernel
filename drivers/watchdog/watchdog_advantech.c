@@ -395,7 +395,7 @@ static int adv_wdt_restart_handle(struct notifier_block *this, unsigned long mod
 		adv_wdt_ping();
 		mdelay(2000);
 	}else{
-		dev_info(adv_wdt_miscdev.parent, "direct timeout\n", __FUNCTION__, __LINE__);
+		dev_info(adv_wdt_miscdev.parent, "%s, %d: direct timeout\n", __FUNCTION__, __LINE__);
 		i2c_smbus_write_word_data(adv_client, (u8)0x29, (u16)0x0001); 
 		mdelay(500);
 	}
