@@ -19,6 +19,9 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <sys/mman.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 int g_size = 4;
 unsigned long g_paddr;

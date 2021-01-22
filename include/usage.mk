@@ -27,6 +27,10 @@ Compile U-Boot:
 
   $$ make compile_uboot
 
+Install Kernel Modules: 
+
+  $$ make install_kernel_modules
+
 endef
 
 export usage_info
