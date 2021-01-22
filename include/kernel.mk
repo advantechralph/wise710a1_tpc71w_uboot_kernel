@@ -42,3 +42,10 @@ $(builddir)/.install_kernel_modules:
 	@mkdir -p $(rootfs)
 	@make -C $(kernelsrc) O=$(kernelbuild) INSTALL_MOD_PATH=$(rootfs) modules_install
 
+.PHONY: install_kernel_headers
+install_kernel_headers: $(builddir)/.install_kernel_headers
+
+$(builddir)/.install_kernel_headers: 
+	@mkdir -p $(rootfs)
+	@make -C $(kernelsrc) O=$(kernelbuild) INSTALL_HDR_PATH=$(rootfs)/usr headers_install
+
