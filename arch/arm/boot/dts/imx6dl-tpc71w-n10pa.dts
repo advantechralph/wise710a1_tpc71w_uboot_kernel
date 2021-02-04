@@ -201,6 +201,7 @@
 		pinctrl_pcie_1: pcie1grp-1 {
 			fsl,pins = <
 				MX6QDL_PAD_CSI0_PIXCLK__GPIO5_IO18	0x80000000	/* PCIE disable pin - WIFI_OFF# */
+				MX6QDL_PAD_EIM_CS0__GPIO2_IO23          0x80000000  /* PCIE reset pin */
 			>;
 		};
 	};
@@ -321,6 +322,7 @@
 	pinctrl-names = "default";
 	pinctrl-0 = <&pinctrl_pcie_1>;
 	disable-gpio = <&gpio5 18 0>;
+	reset-gpio = <&gpio2 23 0>;
 	status = "okay";
 };
 
