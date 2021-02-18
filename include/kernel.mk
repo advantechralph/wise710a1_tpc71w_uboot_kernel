@@ -32,8 +32,8 @@ $(builddir)/.compile_kernel_modules:
 	@make -C $(kernelsrc) O=$(kernelbuild) modules
 
 $(builddir)/.compile_kernel_dtb: 
-	@make -C $(kernelsrc) O=$(kernelbuild) $(modelname).dtb
-	@ln -sf $(kernelbuild)/arch/arm/boot/dts/$(modelname).dtb $(builddir)/$(modelname).dtb
+	@make -C $(kernelsrc) O=$(kernelbuild) $(dtb)
+	@ln -sf $(kernelbuild)/arch/arm/boot/dts/$(dtb) $(builddir)/$(dtb)
 
 .PHONY: install_kernel_modules
 install_kernel_modules: $(builddir)/.install_kernel_modules

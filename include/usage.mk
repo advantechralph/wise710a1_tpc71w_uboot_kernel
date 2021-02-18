@@ -15,21 +15,30 @@ $(call bar)
 $(call title)
 $(call bar)
 
-Compile Kernel: 
+  Compile Kernel: 
 
-  $$ make compile_kernel
+    $$ make  modelname=tpc71wn21pa compile_kernel
 
-Compile Kernel and Build Modules for RootFS: 
+  Compile Kernel and Build Modules for RootFS: 
 
-  $$ make build_kernel
+    $$ make  modelname=tpc71wn21pa build_kernel
 
-Compile U-Boot: 
+  Compile U-Boot: 
 
-  $$ make compile_uboot
+    $$ make  modelname=tpc71wn21pa compile_uboot
 
-Install Kernel Modules: 
+  Install Kernel Modules: 
 
-  $$ make install_kernel_modules
+    $$ make  modelname=tpc71wn21pa install_kernel_modules
+
+  Supported Model Name: 
+
+    $(shell echo $(shell find models -mindepth 1 -maxdepth 1 -name "*.mk" -printf "%P\n" | sed -e "s/\.mk *$$//g") | sed "s/ /, /g")
+
+  Check information: 
+
+    ex: 
+      $$ make info modelname=tpc71wn21pa
 
 endef
 
