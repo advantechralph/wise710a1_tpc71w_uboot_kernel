@@ -15,6 +15,10 @@ $(call bar)
 $(call title)
 $(call bar)
 
+  Build Kernel and U-Boot: 
+
+    $$ make modelname=tpc71wn21pa build
+
   Compile Kernel: 
 
     $$ make  modelname=tpc71wn21pa compile_kernel
