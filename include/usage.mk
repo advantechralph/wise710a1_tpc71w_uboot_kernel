@@ -21,7 +21,7 @@ $(call bar)
 
   Compile Kernel: 
 
-    $$ make  modelname=tpc71wn21pa compile_kernel
+    $$ make modelname=tpc71wn21pa compile_kernel
 
   Compile Kernel and Build Modules for RootFS: 
 
@@ -29,11 +29,23 @@ $(call bar)
 
   Compile U-Boot: 
 
-    $$ make  modelname=tpc71wn21pa compile_uboot
+    $$ make modelname=tpc71wn21pa compile_uboot
+	  
+	  or
+
+    $$ make modelname=tpc71wn21pa build_uboot
 
   Install Kernel Modules: 
 
-    $$ make  modelname=tpc71wn21pa install_kernel_modules
+    $$ make modelname=tpc71wn21pa install_kernel_modules
+
+  Clean build folder: 
+
+    $$ make distclean
+
+  Clean kernel and uboot build: 
+
+    $$ make clean
 
   Supported Model Name: 
 
@@ -49,7 +61,7 @@ endef
 export usage_info
 
 usage help: 
-	@echo "$${usage_info}"
+	@echo "$${usage_info}" | more
 
 .DEFAULT_GOAL:=usage
 

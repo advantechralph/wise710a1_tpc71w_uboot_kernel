@@ -1,4 +1,7 @@
 
+.PHONY: build_uboot
+build_uboot: fetch_uboot $(builddir)/.build_uboot
+
 .PHONY: compile_uboot
 compile_uboot: fetch_uboot $(builddir)/.compile_uboot
 
