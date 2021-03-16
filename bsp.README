@@ -1,0 +1,15 @@
+
+1. Unpack "toolchain.tar.gz" in "/opt" on your Ubuntu 18.04 x86 PC. 
+
+   $ cp -a toolchian/toolchain.tar.gz /opt
+   $ cd /opt
+   $ tar -zxpvf toolchain.tgz
+
+2. Unpack "sources.tar.gz" and make source by the modelname of the device. 
+
+   $ cp -a sources/sources.tar.gz ${your-work-directory}/
+   $ cd ${your-work-directory}
+   $ tar -zxpf sources.tar.gz 
+   $ cd sources
+   $ make modelname=tpc71wn21pa
+
